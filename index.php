@@ -25,9 +25,13 @@ foreach($stmt as $output) {?>
     <h1><?= htmlspecialchars($output['created_by'], ENT_QUOTES, "UTF-8");?></h1>
     <h2><?= htmlspecialchars($output ['post_title'], ENT_QUOTES, "UTF-8");?></h2>
     <p><?= htmlspecialchars($output ['post_text'], ENT_QUOTES, "UTF-8");?></p>
-    <p><?= htmlspecialchars($output ['created_at']);
-}
-?></p>
+    <p><?= htmlspecialchars($output ['created_at']);?></p>
+    <?php if( htmlspecialchars($output['post_link'], ENT_QUOTES, "UTF-8") !== ''){
+        ?><img class= "images" src= <?=htmlspecialchars($output['post_link'], ENT_QUOTES, "UTF-8");?> alt="Bild"><?php
+    }
+}?>
+
+</div>
 <div class="wrapper">
 
 <form action="blog.php" method="post">

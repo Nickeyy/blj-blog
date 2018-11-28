@@ -18,9 +18,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) ){
     $post_title   = trim($_POST['title']   ?? '');
     $post_text = trim($_POST['text'] ??'');
     $created_at = date("Y-m-d H:i:s");
+    $post_link = trim($_POST['link']??'Hallo');
 
-    $stmt = $dbh->prepare("INSERT INTO post (created_by, created_at, post_title, post_text) VALUES(:cr_by, :cr_at, :p_ti, :p_te) ");
-    $stmt->execute([':cr_by' => $created_by, ':cr_at' => $created_at,':p_ti' => $post_title,':p_te' => $post_text]);
+    $stmt = $dbh->prepare("INSERT INTO post (created_by, created_at, post_title, post_text, post_link) VALUES(:cr_by, :cr_at, :p_ti, :p_te, :p_li) ");
+    $stmt->execute([':cr_by' => $created_by, ':cr_at' => $created_at,':p_ti' => $post_title,':p_te' => $post_text, ':p_li'=> $post_link]);
  
     header("Location: http://localhost/blog/index.php");
 }
@@ -46,6 +47,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) ){
         <div class="form-group">
             <label for="note" class="form-label">Ihr super cooler Eintrag</label>
             <textarea name="text" id="text" rows="3" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="link">Ihr super cooler Link, für Ihr super cooles Bild</label>
+            <input class="form-control" type="text" id="link" name="link">
         </div>
     </fieldset>
     <div class="form-actions">
