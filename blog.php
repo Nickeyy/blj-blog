@@ -17,9 +17,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) ){
     $created_by    = trim($_POST['name']    ?? '');
     $post_title   = trim($_POST['title']   ?? '');
     $post_text = trim($_POST['text'] ??'');
+    $created_at = date("Y-m-d H:i:s");
 
     $stmt = $dbh->prepare("INSERT INTO post (created_by, created_at, post_title, post_text) VALUES(:cr_by, :cr_at, :p_ti, :p_te) ");
-    $stmt->execute([':cr_by' => $created_by,':cr_at' => $created_at, ':p_ti' => $post_title,':p_te' => $post_text]);
+    $stmt->execute([':cr_by' => $created_by, ':cr_at' => $created_at,':p_ti' => $post_title,':p_te' => $post_text]);
+ 
+    header("Location: http://localhost/blog/index.php");
 }
 
 ?>
@@ -28,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) ){
 
 <h1 class="form-title">Nickeyys Blog</h1>
 
-<form action="index.php" method="post">
+<form action="blog.php" method="post">
 
     <fieldset>
         <legend class="form-legend">Machen Sie ein super coolen BLOG genau HIER:</legend>
@@ -47,7 +50,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) ){
     </fieldset>
     <div class="form-actions">
         <input class="btn btn-primary" type="submit" value="Absenden">
-        <a href="index.php" class="btn">Absenden abbrechnen</a>
+        <a href="index.php" class="btn">Zurück zum Blog</a>
     </div>
 
 </form>

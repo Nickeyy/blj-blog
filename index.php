@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<h1 class="form-title">Nickeyys Blog</h1>
+<h2> THE PERSONAL BLOG</h2>
+
 <?php
 $user = 'root';
 $pass = '';
@@ -18,16 +22,13 @@ $stmt->execute();
 
 foreach($stmt as $output) {?>
     <div class="form-actions">
-    <?= htmlspecialchars($output['created_by'])?>;
-    <?= htmlspecialchars($output ['post_title'])?>;
-    <?= htmlspecialchars($output ['post_text'])?>;
-    <?= htmlspecialchars($output ['created_at']);
+    <h1><?= htmlspecialchars($output['created_by'], ENT_QUOTES, "UTF-8");?></h1>
+    <h2><?= htmlspecialchars($output ['post_title'], ENT_QUOTES, "UTF-8");?></h2>
+    <p><?= htmlspecialchars($output ['post_text'], ENT_QUOTES, "UTF-8");?></p>
+    <p><?= htmlspecialchars($output ['created_at']);
 }
-?>
+?></p>
 <div class="wrapper">
-
-<h1 class="form-title">Nickeyys Blog</h1>
-<h2> THE PERSONAL BLOG</h2>
 
 <form action="blog.php" method="post">
 <div class="form-actions">
