@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) ){
     $stmt = $dbh->prepare("INSERT INTO post (created_by, created_at, post_title, post_text, post_link) VALUES(:cr_by, :cr_at, :p_ti, :p_te, :p_li) ");
     $stmt->execute([':cr_by' => $created_by, ':cr_at' => $created_at,':p_ti' => $post_title,':p_te' => $post_text, ':p_li'=> $post_link]);
 
-    header("Location: http://10.20.16.102/blog/index.php");
+    header("Location: http://10.20.16.101/blog/index.php");
     }
    else{
         foreach($errors as $error){?>
