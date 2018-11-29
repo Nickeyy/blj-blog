@@ -25,7 +25,6 @@ function insertSpace($text, $pos) {
     } 
     return $new;
 }
-
 $user = 'root';
 $pass = '';
 $dbh = new PDO('mysql:host=localhost;dbname=blogdb', $user, $pass);
@@ -41,12 +40,16 @@ foreach($stmt as $output) {?>
     <p><?= htmlspecialchars($output ['created_at']);?></p>
     <?php if( htmlspecialchars($output['post_link'], ENT_QUOTES, "UTF-8") !== ''){
         ?><img class= "images" src= <?=htmlspecialchars($output['post_link'], ENT_QUOTES, "UTF-8");?> alt="Bild">
+    <form method="post" action="index.php">
+    <button class="button" type="button" value="Submit" name="count"><img class="button-images" src="https://png.pngtree.com/svg/20161030/upvote_1216981.png" alt="Upvote"> </button>
+    <button class="button" type="button" value="Submit" name="count"><img class="button-images" src="https://www.logolynx.com/images/logolynx/5a/5ab5811057da28da30d50fce3fa36b97.png" alt="Downvote"></button>
+    </form>
 <?php
     }
 }
 ?>
-
 </div>
+
 <div class="wrapper">
 
 <form action="blog.php" method="post">
@@ -54,6 +57,6 @@ foreach($stmt as $output) {?>
         <input class="btn btn-primary" type="submit" value="Zum Blog schreiben">
         <a href="otherblog.php" class="btn">Zu anderen nicht so coolen Blogs</a>
 </div>
-
+</div>
 </body>
 </html>
