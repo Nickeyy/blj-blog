@@ -19,3 +19,21 @@ $dbh = new PDO('mysql:host=localhost;dbname=blogdb', $user, $pass);
 $stmt = $dbh->prepare('SELECT * FROM post');
 $stmt->execute();
 $posts = $stmt->fetchAll();
+
+$ups = trim($_POST['ups']    ?? '');
+$downs = trim($_POST['downs']    ?? '');
+$id = trim($_POST['id']    ?? '');
+$ups++;
+$downs++;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if (isset($_POST['upcount'])) {
+        $count = $dbh->exec("UPDATE `post` SET up_votes = $ups WHERE id = $id");
+        
+    }
+    else if (isset($_POST['downcount'])){
+        $count = $dbh->exec("UPDATE `post` SET down_votes = $downs WHERE id = $id");
+    }
+    header("Refresh:0; url=index.php?page=home");
+}

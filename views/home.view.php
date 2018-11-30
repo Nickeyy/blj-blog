@@ -32,13 +32,20 @@
         <?php if(htmlspecialchars($post['post_link'], ENT_QUOTES, "UTF-8") !== ''): ?>
             <img class= "images" src= <?=htmlspecialchars($post['post_link'], ENT_QUOTES, "UTF-8");?> alt="Bild">
         <?php endif; ?>
-        <form method="post" action="index.php">
-            <button class="button" type="button" value="Submit" name="count">
+        <form method="post" action="index.php?page=home">
+            <button class="button" type="submit" name="upcount">
                 <img class="button-images" src="https://png.pngtree.com/svg/20161030/upvote_1216981.png" alt="Upvote"> 
             </button>
-            <button class="button" type="button" value="Submit" name="count">
+            <button class="button" type="submit" name="downcount">
                 <img class="button-images" src="https://www.logolynx.com/images/logolynx/5a/5ab5811057da28da30d50fce3fa36b97.png" alt="Downvote">
             </button>
+            <input class="form-control" type="hidden" id="id" name="id" value="<?=htmlspecialchars($post ['id']);?>">
+            <input class="form-control" type="hidden" id="ups" name="ups" value="<?=htmlspecialchars($post ['up_votes']);?>">
+            <input class="form-control" type="hidden" id="downs" name="downs" value="<?=htmlspecialchars($post ['down_votes']);?>">
+            <p>
+                <?=htmlspecialchars($post ['up_votes']);?>
+                <?=htmlspecialchars($post ['down_votes']);?>    
+            </p>    
         </form>
     </div>
 <?php endforeach; ?>
