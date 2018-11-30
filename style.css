@@ -42,7 +42,7 @@ body{
     width: 600px;
     margin: 0 auto;
     background-color: none;
-    background-image: url("bilder/rickandmorty.png");
+    background-image: url("bilder/rickandmorty2.png");
     background-position: "center";
     background-attachment: fixed;
     background-size: cover;
@@ -70,4 +70,6 @@ body{
     width:40px;
     height:40px;
 }
-
+a{
+    color:white;
+}
