@@ -4,10 +4,21 @@
     width: 80%;
     max-width: 550px;
     margin: 2em auto 0;
+    margin-left: 12%;
 }
 
 .form-title {
     margin-bottom: .7em;
+    margin-left: 15%;
+    font-family: 'Black Ops One', cursive;
+    font-size: 400%;
+    color: #1E90FF;
+    text-shadow: 0 0 10px black;
+}
+.form-title2 {
+    margin-bottom: .7em;
+    margin-left: 15%;
+    font-family: 'Black Ops One', cursive;
 }
 
 .form-label {
@@ -72,4 +83,30 @@ body{
 }
 a{
     color:white;
+}
+.rates{
+    display:flex;
+    justify-content: space-evenly;
+    float: left;
+    margin-top: 2%;
+}
+.rates2{
+    display:flex;
+    justify-content: space-evenly;
+    float: right;
+    margin-top:2%;
+    margin-right: 80%; 
+}
+.anzlike{
+    float: left;
+}
+.anzdislike{
+    float: right;
+}
+.bljBlogs{
+    color:black;
+    font-size: 150%;
+}
+.startGif{
+    margin-left:12%;
 }

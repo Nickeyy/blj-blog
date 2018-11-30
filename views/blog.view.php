@@ -4,7 +4,7 @@
 
 <div class="wrapper">
 
-<h1 class="form-title">Nickeyys Blog</h1>
+<h1 class="form-title">Blog by Nick</h1>
 
 <form action="index.php?page=blog" method="post">
 

@@ -16,7 +16,7 @@ $user = 'root';
 $pass = '';
 $dbh = new PDO('mysql:host=localhost;dbname=blogdb', $user, $pass);
 
-$stmt = $dbh->prepare('SELECT * FROM post');
+$stmt = $dbh->prepare('SELECT * FROM post order by created_at desc');
 $stmt->execute();
 $posts = $stmt->fetchAll();
 
